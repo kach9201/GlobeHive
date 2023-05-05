@@ -8,10 +8,10 @@ import Navbar from './Components/Navbar/Navbar'
 const App = () => {
   return (
     <>
-      <Footer />
-      <Home />
-      <Main />
-      <Navbar />
+    <Navbar/>
+    <Home/>
+    <Main/>
+    <Footer/>
     </>
   )
 }

@@ -1,0 +1,46 @@
+/* home.css */
+
+.hero-content {
+    margin-bottom: 40px;
+  }
+  
+  .hero__subtitle {
+    margin-bottom: 20px;
+  }
+  
+  .hero__subtitle img {
+    width: 30px;
+    height: auto;
+    margin-left: 10px;
+  }
+  
+  .hero__img-box {
+    margin-bottom: 20px;
+  }
+  
+  .hero__img-box img,
+  .hero__img-box video {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    border: 1px solid var(--secondary-color);
+    object-fit: cover;
+  }
+  
+  .highlight {
+    color: #ff6c37;
+  }
+
+  .services__subtitle{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ee6eee;
+    font-family: var(--subtitle-font-name);
+  }
+
+  .services__title {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  
+  

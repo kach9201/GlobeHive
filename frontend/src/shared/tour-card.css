@@ -1,0 +1,84 @@
+.tour__card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .tour__card .tour__img {
+    position: relative;
+  }
+  
+  .tour__card .tour__img img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .tour__card .tour__img span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff6b6b;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+  }
+  
+  .tour__card .card__top {
+    margin-top: 10px;
+  }
+  
+  .tour__card .tour__location i {
+    font-size: 16px;
+  }
+  
+  .tour__card .tour__rating i {
+    font-size: 16px;
+  }
+  
+  .tour__card .tour__rating span {
+    font-size: 12px;
+    color: #777;
+    margin-left: 5px;
+  }
+  
+  .tour__card .tour__title {
+    margin-top: 15px;
+  }
+  
+  .tour__card .card__bottom {
+    margin-top: 20px;
+  }
+  
+  .tour__card .card__bottom h5 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .tour__card .card__bottom span {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .tour__card .booking__btn {
+    background-color: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tour__card .booking__btn:hover {
+    background-color: #e74c3c;
+  }
+  
+  .tour__card .booking__btn a {
+    color: #fff;
+    text-decoration: none;
+  }
+  

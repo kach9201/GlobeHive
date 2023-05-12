@@ -5,7 +5,7 @@ import SearchBar from '../shared/searchBar';
 import Newsletter from '../shared/newsletter';
 import '../styles/tour.css';
 import tourData from '../assets/data/tours';
-import { Container } from 'reactstrap';
+import { Container,Row,Col } from 'reactstrap';
  
 const Tours = () => {
     return (
@@ -26,7 +26,9 @@ const Tours = () => {
         
          <Container>
             <Row>
-
+{
+    tourData?.map(tour=> <Col></Col>)
+}
          </Row>
          </Container>
          </section>

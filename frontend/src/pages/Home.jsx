@@ -8,8 +8,10 @@ import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
 import Subtitle from '../shared/Subtitle';
 import worldImg from '../assets/images/world.png';
+
 import SearchBar from '../shared/SearchBar';
- 
+import ServiceList from '../services/ServiceList';
+
 const Home = () => {
     return (
         <>
@@ -60,11 +62,25 @@ const Home = () => {
                 <h5 className='services__subtitle'> What we offer?</h5>
                 <h2 className='service__title'>Experience the excellence of our services </h2>
             </Col>
+            <ServiceList />
         </Row>
     </Container>
  </section>
-        </>
+
+ {/* {tour section start} */}
+ <section>
+    <Container>
+        <Row>
+            <Col lg='12' className='mb-5'>
+                <Subtitle subtitle={"Explore"}/>
+                <h2 className="featured__tour-title">Our featured tours</h2>
+            </Col>
+        </Row>
+    </Container>
+ </section>
+ {/* {tour section end} */}
+   </>
     );
-}
+};
 
 export default Home;

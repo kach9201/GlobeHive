@@ -1,65 +1,88 @@
-import React from 'react';
-import {Container, Row, Button} from 'reactstrap';
-import {NavLink, Link} from 'react-router-dom';
+import React, { useRef, useEffect } from 'react';
+import { Container, Row, Button } from 'reactstrap';
+import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import "./header.css";
- 
 
-const nav___links=[
-    {
-        path:'/home',
-        display: 'Home'
-    },
-    {
-        path:'/about',
-        display: 'About'
-    },
-    {
-        path:'/tours',
-        display: 'Tours'
-    },
-]
+const navLinks = [
+  {
+    path: '/home',
+    display: 'Home'
+  },
+  {
+    path: '/about',
+    display: 'About'
+  },
+  {
+    path: '/tours',
+    display: 'Tours'
+  }
+];
+
 const Header = () => {
-    return ( <header className="header">
-        <Container>
-            <Row> 
-                <div className="nav___wrapper d-flex align-items-center-justify-content-between">
-                    {/* {logo start} */}
-                    <div className="logo">
-                        <img src={logo} alt=""/>
-                        </div>
-                    {/* {logo end} */}
-                    {/* {menu start} */}
-                    <div className="navigation">
-                        <ul className="menu d-flex align-items-center gap-5">
-                        {
-                            nav___links.map((item,index) => (
-                                <li className="nav___item" key={index}>
-                                <NavLink to= {item.path} className={navClass=>navClass.isActive ? 'active__link':""
-                            }>
-                                {item.display}
-                            </NavLink>
-                        </li>
-                        ))}
-                        </ul>
-                    </div>
-                    {/* {menu end} */}
-                    <div className="nav____right d-flex align-items-center gap-4">
-                        <div className="nav___btns d-flex align-items-center gap-4">
-                             <Button className="btn secondary__btn"><Link to='/login'>Login
-                            </Link></Button>
-                            <Button className="btn primary__btn"><Link to='/register'>Register
-                            </Link></Button>
-                        </div>
-                        <span className="mobile__menu">
-                        <i class="ri-menu-line"></i>
-                        </span>                        
-                    </div>
-                </div>
-            </Row>
-            </Container>
-            </header>
-        )
+  const headerRef = useRef(null);
+
+  const stickyHeaderFunc = () => {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      headerRef.current.classList.add('sticky__header');
+    } else {
+      headerRef.current.classList.remove('sticky__header');
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', stickyHeaderFunc);
+    return () => {
+      window.removeEventListener('scroll', stickyHeaderFunc);
+    };
+  }, []);
+
+  return (
+    <header className="header" ref={headerRef}>
+      <Container>
+        <Row>
+          <div className="nav-wrapper d-flex align-items-center justify-content-between">
+            {/* Logo */}
+            <div className="logo">
+              <img src={logo} alt="" />
+            </div>
+
+            {/* Navigation Menu */}
+            <div className="navigation">
+              <ul className="menu d-flex align-items-center gap-5">
+                {navLinks.map((item, index) => (
+                  <li className="nav-item" key={index}>
+                    <NavLink
+                      exact
+                      to={item.path}
+                      activeClassName="active-link"
+                    >
+                      {item.display}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right-side Navigation */}
+            <div className="nav-right d-flex align-items-center gap-4">
+              <div className="nav-btns d-flex align-items-center gap-4">
+                <Button className="btn secondary-btn">
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button className="btn primary-btn">
+                  <Link to="/register">Register</Link>
+                </Button>
+              </div>
+              <span className="mobile-menu">
+                <i className="ri-menu-line"></i>
+              </span>
+            </div>
+          </div>
+        </Row>
+      </Container>
+    </header>
+  );
 };
 
 export default Header;

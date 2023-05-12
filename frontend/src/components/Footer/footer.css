@@ -1,0 +1,49 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+  }
+  
+  .logo img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .logo p {
+    font-size: 18px;
+  }
+  
+  .social__links a {
+    color: #fff;
+  }
+  
+  .footer__link-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .footer__quick-link a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer__quick-link .list-group-item {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  .footer__quick-link .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer__quick-links h6 span i {
+    color: var(--secondary-color);
+    font-size: 20px;
+
+  }
+
+  .copyright {
+    color: var(--text-color);
+    font-size: 1rem;
+  }

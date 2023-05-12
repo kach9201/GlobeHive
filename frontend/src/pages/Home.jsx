@@ -6,12 +6,17 @@ import {Container, Row, Col} from 'reactstrap';
 import heroImg from '../assets/images/hero-img01.jpg';
 import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
-import Subtitle from '../shared/Subtitle';
 import worldImg from '../assets/images/world.png';
+import experienceImg from '../assets/images/experience.png';
+
+import Subtitle from '../shared/Subtitle';
 
 import SearchBar from '../shared/SearchBar';
 import ServiceList from '../services/ServiceList';
 import FeaturedTourList from '../components/Featured Tours/FeaturedTourList';
+import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery';
+import Testimonials from '../components/Testimonial/Testimonials';
+import Newsletter from '../shared/Newsletter';
 
 const Home = () => {
     return (
@@ -81,8 +86,78 @@ const Home = () => {
     </Container>
  </section>
  {/* {tour section end} */}
+{/* {experience section start} */}
+<section>
+    <Container>
+         <Row>
+            <Col lg='6'>
+                <div className="experience_content">
+                    <Subtitle subtitle={'Experience'}/>
+                    <h2>Experience the Exciting Experience</h2>
+                    <p>You'll love it.
+                    </p>
+                </div>
+
+            <div className="counter__wrapper d-flex align-items-center gap-5">
+                <div className="counter__box">
+                    <span>0+</span>
+                    <h6>Awesome trip</h6>
+                    </div>
+                    <div className="counter__box">
+                    <span>0+</span>
+                    <h6>Customers</h6>
+                    </div>
+                    <div className="counter__box">
+                    <span>0+</span>
+                    <h6>Years of experience</h6>
+                </div>
+            </div>
+            </Col>
+            <Col lg='6'>
+                <div className="experience_img">
+                    <img src={experienceImg} alt='' />
+                </div>
+            </Col>
+         </Row>
+    </Container>
+</section>
+{/* {experience section end} */}
+
+{/* {gallery start} */}
+<section>
+    <Container>
+        <Row>
+            <Col lg='12'>
+                <Subtitle subtitle={'Gallery'}/>
+                <h2 className='gallery__title'>Our Exciting Gallery
+                </h2>
+            </Col>
+            <Col lg ='12'>
+            <MasonryImagesGallery/>
+            </Col>
+        </Row>
+    </Container>
+</section>
+{/* {gallery end} */}
+
+{/* {testimonial start} */}
+<section>
+    <Container>
+        <Row>
+            <Col lg='12'>
+                <Subtitle subtitle={'Bees Love'}/>
+                <h2 className='testimonial__title'>What Our Customers Say</h2>
+            </Col>
+            <Col lg='12'>
+                <Testimonials/>
+            </Col>
+        </Row>
+    </Container>
+</section>
+{/* {testimonial end} */}
+<Newsletter/>
    </>
-    );
+  );
 };
 
 export default Home;

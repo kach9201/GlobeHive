@@ -1,0 +1,58 @@
+.newsletter {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .newsletter__content {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .newsletter__content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .newsletter_input input[type="email"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .btn.newsletter__btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .newsletter__img img {
+    max-width: 100%;
+  }
+  
+  @media (max-width: 767px) {
+    .newsletter__content h2 {
+      font-size: 20px;
+    }
+    
+    .newsletter_input {
+      flex-direction: column;
+    }
+    
+    .newsletter_input input[type="email"] {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+  

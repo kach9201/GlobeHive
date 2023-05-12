@@ -1,6 +1,6 @@
 
-import express from 'express';
-import {
+const express = require('express');
+const {
     createTour,
     deleteTour,
     updateTour,
@@ -9,7 +9,7 @@ import {
     getFeaturedTour,
     getTourSearch,
     getTourCount
-} from '../controllers/tourController.js';
+} = require('../controllers/tourController.js');
 
 const router = express.Router();
 
@@ -22,4 +22,4 @@ router.get("search/getTourBySearch", getTourSearch);
 router.get("search/getFeaturedTours", getFeaturedTour);
 router.get("search/getTourCount", getTourCount);
 
-export default router;
+module.exports = router;

@@ -1,32 +1,34 @@
 
-import express from 'express';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import cookieParser from 'cookie-parser';
+const express = require('express');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
-import tourRoute from './routes/tours.js';
+const db = require('./config/connection.js');
+const tourRoute = require('./routes/tours.js');
 
-import userRoute from './routes/users.js';
+const userRoute = require('./routes/users.js');
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
 
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 
-const connect = async () => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
-        console.log('MongoDB Connected to database');
+// const connect = async () => {
+//     try {
 
-    } catch (err) {
-        console.log("Mongodb connection error");
-    }
-}
+//         await mongoose.connect(`mongodb+srv://elenavaleeva05:amerika08@cluster0.0nh5tgp.mongodb.net/?retryWrites=true&w=majority`, {
+
+//         })
+//         console.log('MongoDB Connected to database');
+
+//     } catch (err) {
+//         console.log("Mongodb connection error");
+//     }
+// }
+
 
 
 app.get('/', (req, res) => {
@@ -39,8 +41,9 @@ app.use(cookieParser());
 app.use('/tours', tourRoute);
 app.use('/users', userRoute);
 
-
-app.listen(port, () => {
-    connect();
-    console.log(`Server is running on port ${port}`);
-})
+db.once('open', () => {
+    app.listen(port, () => {
+        // connect();
+        console.log(`Server is running on port ${port}`);
+    })
+});

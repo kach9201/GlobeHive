@@ -1,4 +1,5 @@
 import React,{ useEffect, useState }  from 'react';
+
 import { useEffect, useState } from '../shared/commonSection';
 import CommonSection from '../shared/commonSection';
 import TourCard from '../shared/tourCard';
@@ -13,6 +14,7 @@ const [pageCount, setPageCount] = useState(0);
 const [page, setPage] = useState(0);
 
 useEffect(() => {
+
     const pages = Math.ceil(5/8);
     setPageCount(pages);
 },[page])

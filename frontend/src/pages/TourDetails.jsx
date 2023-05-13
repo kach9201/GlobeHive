@@ -6,7 +6,7 @@ import tourData from '../assets/data/tours';
 import calculateAvgRating from '../utils/avgRating';
 import avatar from '../assets/images/avatar.jpg';
 import Booking from '../components/Booking';
- 
+
 const TourDetails = () => {
 
     const {id} = useParams();
@@ -39,7 +39,7 @@ const [tourRating, setTourRating] =useState(null);
                     <div className="d-flex align-items-center gap-5">
 <span className="d-flex align-items-center gap-1">
     <i class="ri-star-s-fill" style={{color : "var(--secondary-color)"}}></i>
-    {AvgRating === 0 ? null : avgRating}
+    {avgRating === 0 ? null : avgRating}
     {totalRating === 0 ? ("Not rated"
     ) : (
         <span>({reviews?.length})</span>
@@ -112,6 +112,8 @@ const [tourRating, setTourRating] =useState(null);
                 </Row>   
             </Container>
         </section>
+
+        {/* <Newsletter /> */}
         </>
     )
 }

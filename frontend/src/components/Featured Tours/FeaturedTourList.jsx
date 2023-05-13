@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col } from 'reactstrap';
-import TourCard from '../../shared/TourCard';
+import TourCard from '../../shared/tour-card.css';
 import tourData from "../../assets/data/tours";
 
 

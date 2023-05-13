@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import tourData from '../assets/data/tours';
 import calculateAvgRating from '../utils/avgRating';
 import avatar from '../assets/images/avatar.jpg';
-import Booking from '../components/Booking';
+import Booking from '../components/Booking/Booking';
 
 const TourDetails = () => {
 

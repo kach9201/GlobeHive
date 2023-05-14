@@ -21,6 +21,7 @@ const navLinks = [
 
 const Header = () => {
   const headerRef = useRef(null);
+  const menuRef = useRef(null);
 
   const stickyHeaderFunc = () => {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -37,6 +38,8 @@ const Header = () => {
     };
   }, []);
 
+  const toggleMenu = () => menuRef.current.classList.toggle('show_menu');
+
   return (
     <header className="header" ref={headerRef}>
       <Container>
@@ -48,14 +51,14 @@ const Header = () => {
             </div>
 
             {/* Navigation Menu */}
-            <div className="navigation">
+            <div className="navigation" ref={menuRef}>
               <ul className="menu d-flex align-items-center gap-5">
                 {navLinks.map((item, index) => (
                   <li className="nav-item" key={index}>
                     <NavLink
-                      exact={true.toString()}
+                      exact
                       to={item.path}
-                      className="active-link"
+                      activeClassName="active-link"
                     >
                       {item.display}
                     </NavLink>
@@ -74,7 +77,7 @@ const Header = () => {
                   <Link to="/register">Register</Link>
                 </Button>
               </div>
-              <span className="mobile-menu">
+              <span className="mobile-menu" onClick={toggleMenu}>
                 <i className="ri-menu-line"></i>
               </span>
             </div>

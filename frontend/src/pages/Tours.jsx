@@ -31,8 +31,8 @@ const Tours = () => {
         <Container>
           <Row>
             {tourData?.map((tour) => (
-              <Col lg="3" className="mb-4" key={tour.id}>
-                <TourCard tour={tour} />
+              <Col lg="3" className="mb-4" key={tour._id}>
+                <TourCard tour={tour} key={tour._id} />
               </Col>
             ))}
 

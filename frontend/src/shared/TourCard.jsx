@@ -5,7 +5,8 @@ import calculateAvgRating from '../utils/avgRating';
 
 import './tour-card.css';
 
-const TourCard = ({ photo, city, featured, reviews, id, title, price }) => {
+const TourCard = ({ tour }) => {
+  const { photo, city, featured, reviews, id, title, price } = tour;
   const { avgRating } = calculateAvgRating(reviews);
 
   return (
@@ -49,5 +50,7 @@ const TourCard = ({ photo, city, featured, reviews, id, title, price }) => {
 };
 
 export default TourCard;
+
+
 
 

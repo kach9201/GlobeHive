@@ -13,7 +13,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -37,6 +37,7 @@ a {
   text-decoration: none;
   color: unset;
 }
+
 ul {
   list-style: none;
 }
@@ -53,9 +54,11 @@ ul {
   text-decoration: none;
   color: #fff;
 }
+
 .primary__btn a:hover {
   color: inherit;
 }
+
 .secondary__btn {
   background: transparent !important;
   color: #0b2727 !important;
@@ -79,9 +82,25 @@ ul {
   width: max-content;
   padding: 0px 0.5rem;
   padding-right: 1rem;
-
   border-radius: 50px;
   font-weight: 500;
   font-size: 1.7rem;
   color: var(--heading-color);
+}
+
+@media only screen and (max-width: 992px) {
+  .primary__btn a,
+  .secondary__btn a {
+    font-size: 1rem;
+  }
+
+  .primary__btn,
+  .secondary__btn,
+  .btn-dark {
+    padding: 0.2rem 1.1rem !important;
+  }
+
+  section {
+    padding: 40px 0;
+  }
 }

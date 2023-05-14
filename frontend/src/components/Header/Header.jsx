@@ -53,9 +53,9 @@ const Header = () => {
                 {navLinks.map((item, index) => (
                   <li className="nav-item" key={index}>
                     <NavLink
-                      exact
+                      exact={true.toString()}
                       to={item.path}
-                      activeClassName="active-link"
+                      className="active-link"
                     >
                       {item.display}
                     </NavLink>

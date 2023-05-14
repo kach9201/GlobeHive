@@ -67,25 +67,24 @@ const year = new Date().getFullYear ()
                         <h5 className='footer__link-title'>Discover</h5>
 
                         <ListGroup className='footer__quick-link'>
-                            {
-                            quick___links.map((item,index) => (
-                                <ListGroupItem key={index} className='ps-0 border-0'>
-                                    <Link to={item.path}>{item.display}</Link>
-                                </ListGroupItem>
-                            ))}
-                        </ListGroup>
+  {quick___links2.map((item, index) => (
+    <ListGroupItem key={`quick_link2_${index}`} className='ps-0 border-0'>
+      <Link to={item.path}>{item.display}</Link>
+    </ListGroupItem>
+  ))}
+</ListGroup>
+
                     </Col>
                     <Col md="4">
                     <h5 className='footer__link-title'>Quick Links</h5>
 
                     <ListGroup className='footer__quick-link'>
-                            {
-                            quick___links2.map((item,index) => (
-                                <ListGroupItem key={index} className='ps-0 border-0'>
-                                    <Link to={item.path}>{item.display}</Link>
-                                </ListGroupItem>
-                            ))}
-                        </ListGroup>
+  {quick___links.map((item, index) => (
+    <ListGroupItem key={`quick_link2_${index}`} className='ps-0 border-0'>
+      <Link to={item.path}>{item.display}</Link>
+    </ListGroupItem>
+  ))}
+</ListGroup>
                     </Col>
                     <Col md="4"> 
                     <h5 className='footer__link-title'>Contact</h5>

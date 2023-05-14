@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 
 
@@ -17,36 +17,30 @@ const verifyToken = (req, res, next) => {
         req.user = user
         next()
     })
+};
 
+const verifyUser = (req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.id === req.params.id || req.user.role === 'admin') {
+            next()
+        }
+        else {
+            return res.status(401).json({ success: false, message: 'Unauthorized.' })
+        }
+    });
+};
 
-    const verifyUser = (req, res, next) => {
-        verifyToken(req, res, () => {
-            if (req.user.id === req.params.id || req.user.role === 'admin') {
-                next()
-            }
-            else {
-                return res.status(401).json({ success: false, message: 'Unauthorized.' })
-            }
-        });
-    };
-
-    const verifyAdmin = (req, res, next) => {
-        verifyToken(req, res, () => {
-            if (req.user.role === 'admin') {
-                next()
-            }
-            else {
-                return res.status(401).json({ success: false, message: 'Unauthorized.' })
-            }
-        });
-    };
-
+const verifyAdmin = (req, res, next) => {
+    verifyToken(req, res, () => {
+        if (req.user.role === 'admin') {
+            next()
+        }
+        else {
+            return res.status(401).json({ success: false, message: 'Unauthorized.' })
+        }
+    });
 };
 
 
 
-
-
-
-
-module.exports = verifyToken
+export default { verifyToken, verifyUser, verifyAdmin }

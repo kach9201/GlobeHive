@@ -1,6 +1,6 @@
 
-const express = require('express');
-const {
+import express from 'express';
+import {
     createTour,
     deleteTour,
     updateTour,
@@ -9,9 +9,9 @@ const {
     getFeaturedTour,
     getTourSearch,
     getTourCount
-} = require('../controllers/tourController.js');
+} from '../controllers/tourController.js';
 
-const verifyAdmin = require('../utils/verifyToken.js');
+import verifyAdmin from '../utils/verifyToken.js';
 
 const router = express.Router();
 
@@ -24,4 +24,4 @@ router.get("search/getTourBySearch", getTourSearch);
 router.get("search/getFeaturedTours", getFeaturedTour);
 router.get("search/getTourCount", getTourCount);
 
-module.exports = router;
+export default router;

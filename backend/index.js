@@ -1,14 +1,14 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
+import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
-const db = require('./config/connection.js');
-const tourRoute = require('./routes/tours.js');
-const userRoute = require('./routes/users.js');
-const authRoute = require('./routes/auth.js');
-const reviewRoute = require('./routes/review.js');
+import db from './routes/auth.js';
+import tourRoute from './routes/tours.js';
+import userRoute from './routes/users.js';
+import authRoute from './routes/auth.js';
+import reviewRoute from './routes/review.js';
 
 const corsOptions = {
   origin: true,
@@ -49,3 +49,4 @@ connect();
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+

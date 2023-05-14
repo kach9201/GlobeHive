@@ -1,5 +1,5 @@
-const express = require('express');
-const { createReview } = require('../controllers/reviewController.js');
+import express from 'express';
+import { createReview } from '../controllers/reviewController.js';
 const router = express.Router();
 
 router.post('/:tourId', createReview)
@@ -12,4 +12,4 @@ router.post('/:tourId', createReview)
 
 
 
-module.exports = router;
+export default router;

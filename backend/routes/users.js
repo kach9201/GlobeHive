@@ -1,16 +1,16 @@
 
-const express = require('express');
-const { createUser, deleteUser, getAllUser, getSingleUser, updateUser } = require('../controllers/userController.js');
+import express from 'express';
+import { createUser, deleteUser, getAllUser, getSingleUser, updateUser } from '../controllers/userController.js';
 const router = express.Router();
-const verifyToken = require('../utils/verifyToken.js');
-const verifyAdmin = require('../utils/verifyToken.js');
-const verifyUser = require('../utils/verifyToken.js');
+import verifyToken from '../utils/verifyToken.js';
+import verifyAdmin from '../utils/verifyToken.js';
+import verifyUser from '../utils/verifyToken.js';
 
 router.post('/', createUser);
 router.put('/:id', verifyUser, updateUser);
 router.delete('/:id', verifyUser, deleteUser);
 router.get('/:id', verifyUser, getSingleUser);
 router.get('/:id', verifyAdmin, getAllUser);
+router.get('/:id', verifyToken, getAllUser);
 
-
-module.exports = router;
+export default router;

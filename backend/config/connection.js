@@ -1,4 +1,4 @@
-const { connect, connection } = require('mongoose');
+import { connect, connection } from 'mongoose';
 
 
 const connectionString =
@@ -6,4 +6,4 @@ const connectionString =
 
 connect(connectionString);
 
-module.exports = connection;
+export default connection;

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const tourSchema = new mongoose.Schema(
   {
@@ -51,4 +51,4 @@ const tourSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = tourSchema;
+export default mongoose.model("Tour", tourSchema);

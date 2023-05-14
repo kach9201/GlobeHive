@@ -9,26 +9,16 @@ const db = require('./config/connection.js');
 const tourRoute = require('./routes/tours.js');
 
 const userRoute = require('./routes/users.js');
+const authRoute = require('./routes/auth.js');
+const reviewRoute = require('./routes/review.js');
+const corsOptions = {
+    origin: true,
+    credentials: true
+}
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 8000;
-
-// mongoose.set('strictQuery', false);
-
-// const connect = async () => {
-//     try {
-
-//         await mongoose.connect(`mongodb+srv://elenavaleeva05:amerika08@cluster0.0nh5tgp.mongodb.net/?retryWrites=true&w=majority`, {
-
-//         })
-//         console.log('MongoDB Connected to database');
-
-//     } catch (err) {
-//         console.log("Mongodb connection error");
-//     }
-// }
-
 
 
 app.get('/', (req, res) => {
@@ -36,14 +26,17 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
-app.use('/tours', tourRoute);
-app.use('/users', userRoute);
+app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/tours', tourRoute);
+app.use('/api/v1/users', userRoute);
+app.use('/api/v1/review', reviewRoute);
+
 
 db.once('open', () => {
     app.listen(port, () => {
-        // connect();
+        connect();
         console.log(`Server is running on port ${port}`);
     })
 });

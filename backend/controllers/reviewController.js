@@ -3,24 +3,24 @@ import Review from '../models/Review.js';
 
 
 
-const createReview = async (req, res) => {
+export const createReview = async (req, res) => {
 
 
     const tourId = req.params.tourId;
     const newReview = new Review({ ...req.body })
     try {
-        const saveReview = await newReview.save();
+        const savedReview = await newReview.save();
 
         await Tour.findByIdAndUpdate(tourId, {
-            $push: { reviews: saveReview._id }
+            $push: { reviews: savedReview._id }
         });
 
-        res.status(200).json({ success: true, message: 'Review created successfully', data: saveReview });
+        res.status(200).json({ success: true, message: 'Review created successfully', data: savedReview });
 
 
     } catch (error) {
 
-        res.status(500).json({ success: false, message: 'Error creating review' });
+        res.status(500).json({ success: true, message: 'Error creating review' });
     }
 
 };

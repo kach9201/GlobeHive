@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 
 
-const verifyToken = (req, res, next) => {
+export const verifyToken = (req, res, next) => {
     const token = req.cookies.accessToken
 
     if (!token) {
@@ -19,19 +19,18 @@ const verifyToken = (req, res, next) => {
     })
 };
 
-const verifyUser = (req, res, next) => {
-    verifyToken(req, res, () => {
+export const verifyUser = (req, res, next) => {
+    verifyToken(req, res, next, () => {
         if (req.user.id === req.params.id || req.user.role === 'admin') {
             next()
-        }
-        else {
+        } else {
             return res.status(401).json({ success: false, message: 'Unauthorized.' })
         }
-    });
+    })
 };
 
-const verifyAdmin = (req, res, next) => {
-    verifyToken(req, res, () => {
+export const verifyAdmin = (req, res, next) => {
+    verifyToken(req, res, next, () => {
         if (req.user.role === 'admin') {
             next()
         }

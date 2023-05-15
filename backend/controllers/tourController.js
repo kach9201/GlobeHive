@@ -4,7 +4,7 @@
 import Tour from '../models/Tour.js';
 import User from '../models/User.js';
 
-const createTour = async (req, res) => {
+export const createTour = async (req, res) => {
 
     const newTour = new Tour(req.body);
 
@@ -24,7 +24,7 @@ const createTour = async (req, res) => {
 
 };
 
-const updateTour = async (req, res) => {
+export const updateTour = async (req, res) => {
 
     const id = req.params.id;
     try {
@@ -64,11 +64,11 @@ const deleteTour = async (req, res) => {
     }
 };
 
-const getSingleTour = async (req, res) => {
+export const getSingleTour = async (req, res) => {
 
     const id = req.params.id;
     try {
-        const tour = await Tour.findById(id);
+        const tour = await Tour.findById(id).populate('reviews');
         res.status(200).json({
             success: true,
             message: 'Successfully retrieved a tour',
@@ -83,7 +83,7 @@ const getSingleTour = async (req, res) => {
     }
 };
 
-const getAllTour = async (req, res) => {
+export const getAllTour = async (req, res) => {
 
 
     const page = parseInt(req.query.page);
@@ -105,7 +105,7 @@ const getAllTour = async (req, res) => {
     }
 };
 
-const getTourSearch = async (req, res) => {
+export const getTourSearch = async (req, res) => {
 
 
     const city = new RegExp(req.query.city, 'i');
@@ -122,7 +122,7 @@ const getTourSearch = async (req, res) => {
             count: tour.length,
             message: 'Successfully retrieved all tours',
             data: tour,
-        });
+        }).populate('reviews');
 
     } catch (err) {
         res.status(500).json({
@@ -131,11 +131,11 @@ const getTourSearch = async (req, res) => {
         });
     }
 };
-const getFeaturedTour = async (req, res) => {
+export const getFeaturedTour = async (req, res) => {
 
 
     try {
-        const tour = await Tour.find({ featured: true }), limit = (8);
+        const tour = await Tour.find({ featured: true }).populate('reviews').limit(8);
 
         res.status(200).json({
             success: true,
@@ -151,7 +151,7 @@ const getFeaturedTour = async (req, res) => {
     }
 };
 
-const getTourCount = async (req, res) => {
+export const getTourCount = async (req, res) => {
 
     try {
 

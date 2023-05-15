@@ -77,7 +77,7 @@ const Home = () => {
               <Subtitle subtitle={"Explore"} />
               <h2 className="featured__tour-title">Our featured tours</h2>
               <div className="hero__img-box">
-                <img src={worldImg} alt="" />
+                {/* <img src={} alt="" /> */}
               </div>
             </Col>
             <FeaturedTourList />

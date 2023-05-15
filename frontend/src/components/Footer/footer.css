@@ -1,11 +1,12 @@
 .footer {
     background-color: #333;
     color: #fff;
-    padding: 30px 0;
+    padding: 0px 0;
+    background-color: rgb(178, 237, 237);
   }
   
   .logo img {
-    max-width: 100px;
+    max-width: 200px;
     margin-bottom: 10px;
   }
   

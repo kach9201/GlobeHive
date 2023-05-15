@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
-const register = async (req, res) => {
+export const register = async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(req.body.password, salt);
@@ -26,7 +26,7 @@ const register = async (req, res) => {
   }
 
 };
-const login = async (req, res) => {
+export const login = async (req, res) => {
   const email = req.body.email;
 
   try {

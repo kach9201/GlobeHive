@@ -8,10 +8,10 @@ import {
     getAllTour,
     getFeaturedTour,
     getTourSearch,
-    getTourCount
+    getTourCount,
 } from '../controllers/tourController.js';
 
-import verifyAdmin from '../utils/verifyToken.js';
+import { verifyAdmin } from '../utils/verifyToken.js';
 
 const router = express.Router();
 

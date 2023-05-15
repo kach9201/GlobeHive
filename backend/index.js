@@ -33,19 +33,26 @@ app.use('/api/v1/review', reviewRoute);
 app.use('/api/v1/booking', bookingRoute);
 
 
+// ...import statements...
+
 mongoose.set('strictQuery', false);
+mongoose.set('createIndexes', true);
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
+      // useCreateIndexes: true, // Use useCreateIndexes instead of useCreateIndex
     });
     console.log('Connected to MongoDB');
   } catch (error) {
     console.error('Failed to connect to MongoDB', error);
   }
 };
+
+// ...rest of the code...
+
 
 connect();
 
